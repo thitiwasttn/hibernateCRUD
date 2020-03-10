@@ -61,4 +61,13 @@ public class TestJdbc {
             logger.debug(resultset.getString("first_name"));
         }
     }
+
+    static Connection getConnector() throws Exception
+    {
+        String jdbc = "jdbc:mysql://localhost:3306/udemy_demo?useSSL=false&serverTimezone=UTC";
+        String user = "root";
+        String pass = "dewsfmsx123";
+        Connection connection = DriverManager.getConnection(jdbc,user,pass);
+        return connection;
+    }
 }

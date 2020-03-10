@@ -28,27 +28,25 @@ public class UpdateStudentDemo {
             int studentId = 1144;
             session.beginTransaction();
             logger.debug("studentId for update === > " + studentId);
-            Student student = session.get(Student.class,studentId);
-            logger.debug("student === > "+ student.toString());
+            Student student = session.get(Student.class, studentId);
+            logger.debug("student === > " + student.toString());
 
             //update 1
             student.setFirstName("after update");
-            logger.debug("==== update === student === "+ student.toString());
+            logger.debug("==== update === student === " + student.toString());
 //            session.getTransaction().commit();
 
             //update 2
-            session.createQuery("update Student set email = 'afterUpdate@hibernate.com' where id="+studentId).executeUpdate();
+            session.createQuery("update Student set email = 'afterUpdate@hibernate.com' where id=" + studentId).executeUpdate();
             session.getTransaction().commit();
             logger.debug("==== done ====");
 
-        }catch (Exception ex)
-        {
+        } catch (Exception ex) {
             logger.error(ex.toString());
-        }finally {
+        } finally {
             try {
                 studentFactory.close();
-            }catch (Exception ex)
-            {
+            } catch (Exception ex) {
                 logger.error(ex.toString());
             }
         }

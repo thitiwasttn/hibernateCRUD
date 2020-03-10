@@ -29,9 +29,11 @@ public class GetStudentDemo {
             session.beginTransaction();
 //            Student student = session.get(Student.class,3);
 //            logger.debug(student.toString());
-            getAllStudent(session);
+//            getAllStudent(session);
 //            customQuery(session);
-//            List<Student> students = session.createQuery("from m_student").list();
+            List<Student> students = session.createQuery("from Student where personCode = 'uumtgpvclwcmzxkki'").list();
+
+            logger.debug("student id === >>"+students.get(0).getId());
         } catch (Exception ex) {
             logger.debug(ex.toString());
         } finally {
